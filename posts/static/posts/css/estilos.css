@@ -69,3 +69,33 @@ footer {
         padding: 24px;
     }
 }
+.ver-posts {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.btn-ver-posts {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #6a5acd;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ver-posts:hover {
+    background-color: #483d8b;
+}
+.menu-navegacion {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+    padding: 15px 30px;
+}
+
+.menu-navegacion a {
+    text-decoration: none;
+}

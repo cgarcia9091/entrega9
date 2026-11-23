@@ -1,31 +1,36 @@
-
 # Blog Django
 
-Proyecto base de un blog web desarrollado con Django.
+Proyecto web de un blog desarrollado con Django. Permite gestionar publicaciones mediante el panel administrativo y mostrarlas dinámicamente utilizando el ORM de Django y una base de datos SQLite.
 
 ## Descripción
 
-Este repositorio contiene la estructura inicial de un proyecto Django para desarrollar un blog web.
+Este proyecto contiene:
 
-Incluye el proyecto principal `blog_project` y una aplicación llamada `posts`.
+- Proyecto principal `blog_project`.
+- Aplicación `posts`.
+- Templates HTML con herencia.
+- Estilos CSS.
+- Modelo `Post` para gestionar publicaciones.
+- Panel administrativo de Django.
+- Listado dinámico de publicaciones.
 
 ## Requisitos
 
-- Python
-- Django
+- Python 3.12 o superior.
+- Django 6.1.3.
 
 ## Instalación
 
 Clonar el repositorio:
 
 ```bash
-git clone https://github.com/cgarcia9091/entrega8.git
+git clone https://github.com/cgarcia9091/entrega9.git
 ```
 
 Ingresar a la carpeta:
 
 ```bash
-cd entrega8
+cd entrega9
 ```
 
 Crear el entorno virtual:
@@ -52,7 +57,17 @@ Aplicar las migraciones:
 python manage.py migrate
 ```
 
-Ejecutar el servidor:
+## Crear un superusuario
+
+Para acceder al panel administrativo, ejecutar:
+
+```bash
+python manage.py createsuperuser
+```
+
+Seguir las instrucciones para crear el nombre de usuario, correo electrónico y contraseña.
+
+## Ejecutar el servidor
 
 ```bash
 python manage.py runserver
@@ -60,13 +75,35 @@ python manage.py runserver
 
 Abrir en el navegador:
 
-http://127.0.0.1:8000/
+- Inicio: http://127.0.0.1:8000/
+- Publicaciones: http://127.0.0.1:8000/posts/
+- Acerca de: http://127.0.0.1:8000/acerca/
+- Panel administrativo: http://127.0.0.1:8000/admin/
+
+## Modelo Post
+
+El modelo `Post` contiene los siguientes campos:
+
+- `titulo`: título de la publicación.
+- `contenido`: contenido del post.
+- `autor`: autor de la publicación.
+- `fecha_creacion`: fecha generada automáticamente.
+- `estado`: permite seleccionar entre borrador, publicado y archivado.
+
+Las publicaciones se administran desde el panel administrativo de Django.
+
+## ORM y publicaciones dinámicas
+
+El listado de publicaciones utiliza el ORM de Django para consultar los posts cuyo estado sea publicado, ordenados por fecha de creación descendente.
+
+Las publicaciones se muestran dinámicamente en los templates `inicio.html` y `lista_posts.html`.
 
 ## Aplicaciones
 
-- `posts`: aplicación inicial destinada a gestionar las publicaciones del blog.
+- `posts`: aplicación encargada de gestionar las publicaciones del blog.
 
 ## Configuración
 
 - Idioma: español de Argentina (`es-ar`).
 - Zona horaria: `America/Argentina/Buenos_Aires`.
+- Base de datos: SQLite.

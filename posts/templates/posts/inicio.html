@@ -13,9 +13,38 @@
     </p>
 
     <p>
-        Aquí encontrarás contenido relacionado al 
-        blog.
+        Aquí encontrarás contenido relacionado al blog.
     </p>
+</section>
+
+<section class="publicaciones">
+    <h2>Últimas publicaciones</h2>
+
+    {% for post in posts %}
+        <article class="post">
+            <h3>{{ post.titulo }}</h3>
+
+            <p>{{ post.contenido }}</p>
+
+            <p>
+                <strong>Autor:</strong> {{ post.autor }}
+            </p>
+
+            <p>
+                <strong>Fecha:</strong> {{ post.fecha_creacion|date:"d/m/Y H:i" }}
+            </p>
+        </article>
+
+    {% empty %}
+        <p>Todavía no hay publicaciones disponibles.</p>
+{% endfor %}
+
+<div class="ver-posts">
+    <a href="{% url 'lista_posts' %}" class="btn-ver-posts">
+        Ver posts
+    </a>
+</div>
+
 </section>
 
 {% endblock %}

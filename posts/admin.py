@@ -1,3 +1,11 @@
 from django.contrib import admin
+from .models import Post
 
-# Register your models here.
+
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'autor', 'estado', 'fecha_creacion')
+    list_filter = ('estado', 'fecha_creacion')
+    search_fields = ('titulo', 'autor')
+
+
+admin.site.register(Post, PostAdmin)
